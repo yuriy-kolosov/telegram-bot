@@ -1,10 +1,10 @@
 package pro.sky.telegrambot.exception;
 
-public class DatabaseOperationException extends RuntimeException {
+public class RepositoryOperationException extends RuntimeException {
 
     private final String message;
 
-    public DatabaseOperationException(String message) {
+    public RepositoryOperationException(String message) {
         this.message = message;
     }
 
