@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import pro.sky.telegrambot.exception.DatabaseOperationException;
+import pro.sky.telegrambot.exception.RepositoryOperationException;
 import pro.sky.telegrambot.service.NotificationTaskService;
 
 @Component
@@ -40,7 +40,7 @@ public class TelegramBotScheduler {
                         notificationTaskService.update(n);
                     });
         } catch (RuntimeException e) {
-            throw new DatabaseOperationException("Ошибка базы данных");
+            throw new RepositoryOperationException("Ошибка обращения к подсистеме хранения данных");
         }
     }
 

@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pro.sky.telegrambot.exception.DatabaseOperationException;
+import pro.sky.telegrambot.exception.RepositoryOperationException;
 import pro.sky.telegrambot.service.NotificationTaskService;
 
 import java.util.List;
@@ -60,7 +60,7 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
                     telegramBot.execute(message);
                 }
             } catch (RuntimeException e) {
-                throw new DatabaseOperationException("Ошибка базы данных");
+                throw new RepositoryOperationException("Ошибка обращения к подсистеме хранения данных");
             }
         });
         return UpdatesListener.CONFIRMED_UPDATES_ALL;
